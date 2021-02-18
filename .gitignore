@@ -1,0 +1,19 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Visual Studio Code folder
+.vscode
+
+# tailwind (styles.json is un-tracked ONLY when purge is enabled)
+styles.json
+
+# macOS
+.DS_Store
