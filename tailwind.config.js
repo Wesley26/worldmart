@@ -22,6 +22,9 @@ module.exports = {
       flex: {
         '2': '2 2 0%',
       },
+      fontSize: {
+        '18': '18px',
+      },
       spacing: {
         '70': '70px',
       },
