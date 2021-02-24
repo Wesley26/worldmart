@@ -18,6 +18,7 @@ module.exports = {
       colors: {
         'appRed': '#fc5c65',
         'appGreen': '#4ECDC4',
+        'danger': '#ff5252',
       },
       flex: {
         '2': '2 2 0%',
@@ -26,6 +27,7 @@ module.exports = {
         '18': '18px',
       },
       spacing: {
+        '15e': '15px',
         '20e': '20px',
         '70': '70px',
         '100e': '100px',
@@ -35,6 +37,7 @@ module.exports = {
         '150': '150px',
       },
       height : {
+        '1': '1px',
         '70': '70px',
         '150': '150px',
         '200': '200px',

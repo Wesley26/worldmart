@@ -9,12 +9,13 @@ import React from 'react';
 
 //import { tailwind } from './tailwind.js';
 
-import WelcomeScreen from "./components/screens/WelcomeScreen.js";
+//import WelcomeScreen from "./components/screens/WelcomeScreen.js";
 //import ViewImageScreen from "./components/screens/ViewImageScreen.js";
 //import Cards from "./components/componentsMain/Cards.js";
 //import ListingDetailsScreen from './components/screens/ListingDetailsScreen.js';
+import MessagesScreen from "./components/screens/MessagesScreen.js";
 
-const App = () => { return <WelcomeScreen />; }; export default App; //temp welcome screen
+//const App = () => { return <WelcomeScreen />; }; export default App; //temp welcome screen
 
 //const App = () => { return <ViewImageScreen />; }; export default App; //temp view image screen
 
@@ -41,3 +42,5 @@ export default App;
 */
 
 //const App = () => { return <ListingDetailsScreen />; }; export default App; //temp ListingDetailsScreen screen
+
+const App = () => { return <MessagesScreen />; }; export default App; //temp messages screen
