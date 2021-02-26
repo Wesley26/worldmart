@@ -29,7 +29,7 @@ const MessagesScreen = () => {
 
     const handleDelete = message => {
         
-        //update the new arry of message objects, re-render
+        //update the new array of message objects, re-render
         setMessages(messages.filter((m) => m.id !== message.id));
     };
 

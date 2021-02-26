@@ -8,7 +8,8 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import { tailwind } from '../../tailwind.js';
 
-const ListItem = ({ image, 
+const ListItem = ({ IconComponent,
+                    image, 
                     title, 
                     subTitle, 
                     onPress, 
@@ -23,20 +24,21 @@ const ListItem = ({ image,
                 underlayColor={`#fff8dc`}
                 onPress={onPress}
             >
-                <View style={tailwind('flex-row p-15e')}>
+                <View style={tailwind('bg-white flex-row p-15e')}>
 
-                    <Image
+                    {IconComponent}
+                    {image && <Image
                         source={image}
                         style={tailwind('mr-2 w-70 h-70 rounded-full')}
-                    />
+                    />}
 
-                    <View style={tailwind('pl-2')}>
+                    <View style={tailwind('ml-2 pl-2 justify-center')}>
                         <Text style={tailwind('mb-1 text-lg font-bold')}>
                             {title}
                         </Text>
-                        <Text style={tailwind('text-gray-600 text-base font-medium')}>
+                        {subTitle && <Text style={tailwind('text-gray-600 text-base font-medium')}>
                             {subTitle}
-                        </Text>
+                        </Text>}
                     </View>
 
                 </View>
