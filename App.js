@@ -82,11 +82,12 @@ export default App; //temp Screen with ListItem
 
 //const App = () => { return <ListingsScreen />; }; export default App; //temp listings screen
 
-import React from 'react';
+import React, { useState } from 'react';
 
 //import { tailwind } from './tailwind.js';
 
 import AppTextInput from './components/componentsMain/AppTextInput.js';
+import AppPicker from './components/componentsMain/AppPicker.js';
 import Screen from './components/componentsMain/Screen.js';
 //import Icon from './components/componentsMain/Icon.js';
 //import ListItem from './components/componentsMain/ListItem.js';
@@ -99,14 +100,29 @@ import Screen from './components/componentsMain/Screen.js';
 //import AccountScreen from './components/screens/AccountScreen.js';
 //import ListingsScreen from './components/screens/ListingsScreen.js';
 
-const App = () => { 
+const categories = [
+    { label: "Furniture", value: 1 },
+    { label: "Clothing", value: 2 },
+    { label: "Cameras", value: 3 },
+];
+
+const App = () => {
+    
+    const [category, setCategory] = useState(categories[0]);
     
     return (
 
         <Screen>
-            <AppTextInput 
-                placeholder="Username"
+            <AppPicker
+                selectedItem={category}
+                onSelectItem={item => setCategory(item)}
+                items={categories}
+                icon="apps"
+                placeholder="Category" 
+            />
+            <AppTextInput
                 icon="email"
+                placeholder="Email" 
             />
         </Screen>
 
