@@ -82,24 +82,8 @@ export default App; //temp Screen with ListItem
 
 //const App = () => { return <ListingsScreen />; }; export default App; //temp listings screen
 
-import React, { useState } from 'react';
-
-//import { tailwind } from './tailwind.js';
-
-import AppTextInput from './components/componentsMain/AppTextInput.js';
-import AppPicker from './components/componentsMain/AppPicker.js';
-import Screen from './components/componentsMain/Screen.js';
-//import Icon from './components/componentsMain/Icon.js';
-//import ListItem from './components/componentsMain/ListItem.js';
-
-//import WelcomeScreen from "./components/screens/WelcomeScreen.js";
-//import ViewImageScreen from "./components/screens/ViewImageScreen.js";
-//import Cards from "./components/componentsMain/Cards.js";
-//import ListingDetailsScreen from './components/screens/ListingDetailsScreen.js';
-//import MessagesScreen from "./components/screens/MessagesScreen.js";
-//import AccountScreen from './components/screens/AccountScreen.js';
-//import ListingsScreen from './components/screens/ListingsScreen.js';
-
+/**
+//Testing AppTextInput, AppPicker, and Screen
 const categories = [
     { label: "Furniture", value: 1 },
     { label: "Clothing", value: 2 },
@@ -130,3 +114,25 @@ const App = () => {
 };
 
 export default App;
+*/
+
+import React from 'react';
+
+//import { tailwind } from './tailwind.js';
+
+//import AppTextInput from './components/componentsMain/AppTextInput.js';
+//import AppPicker from './components/componentsMain/AppPicker.js';
+//import Screen from './components/componentsMain/Screen.js';
+//import Icon from './components/componentsMain/Icon.js';
+//import ListItem from './components/componentsMain/ListItem.js';
+
+//import WelcomeScreen from "./components/screens/WelcomeScreen.js";
+//import ViewImageScreen from "./components/screens/ViewImageScreen.js";
+//import Cards from "./components/componentsMain/Cards.js";
+//import ListingDetailsScreen from './components/screens/ListingDetailsScreen.js';
+//import MessagesScreen from "./components/screens/MessagesScreen.js";
+//import AccountScreen from './components/screens/AccountScreen.js';
+//import ListingsScreen from './components/screens/ListingsScreen.js';
+import LoginScreen from './components/screens/LoginScreen';
+
+const App = () => { return <LoginScreen />; }; export default App; //temp LoginScreen
