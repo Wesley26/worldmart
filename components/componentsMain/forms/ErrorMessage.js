@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { tailwind } from '../../tailwind.js';
+import { tailwind } from '../../../tailwind.js';
 
-const ErrorMessage = ({ error }) => {
+const ErrorMessage = ({ error, visible }) => {
 
-    if (!error) {
+    if (!visible || !error) {
         return null;
     };
 
