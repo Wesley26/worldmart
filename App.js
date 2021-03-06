@@ -116,6 +116,8 @@ const App = () => {
 export default App;
 */
 
+//const App = () => { return <LoginScreen />; }; export default App; //temp LoginScreen
+
 import React from 'react';
 
 //import { tailwind } from './tailwind.js';
@@ -133,6 +135,7 @@ import React from 'react';
 //import MessagesScreen from "./components/screens/MessagesScreen.js";
 //import AccountScreen from './components/screens/AccountScreen.js';
 //import ListingsScreen from './components/screens/ListingsScreen.js';
-import LoginScreen from './components/screens/LoginScreen';
+//import LoginScreen from './components/screens/LoginScreen';
+import ListingEditScreen from './components/screens/ListingEditScreen.js';
 
-const App = () => { return <LoginScreen />; }; export default App; //temp LoginScreen
+const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen

@@ -18,7 +18,8 @@ const AppTextInput = ({ icon, ...otherProps }) => {
                 color={`#8b0000`}
                 style={tailwind('mr-3')}
            />}
-           <TextInput 
+           <TextInput
+                placeholderTextColor={`#d2691e`}
                 style={defaultStyles.text}
                 {...otherProps}
            />

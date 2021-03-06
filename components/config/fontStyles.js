@@ -11,7 +11,7 @@ import { Platform } from 'react-native';
 
 export default {
     text: {
-        color: `#374151`,
+        color: `#800000`,
         fontSize: 18,
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
     },
