@@ -6,7 +6,10 @@ import ErrorMessage from "./ErrorMessage.js";
 
 const AppFormPicker = ({ items,
                          name,
-                         placeholder }) => {
+                         numberOfColumns,
+                         PickerItemComponent,
+                         placeholder,
+                         width }) => {
 
     const { errors, setFieldValue, touched, values } = useFormikContext();
 
@@ -15,9 +18,12 @@ const AppFormPicker = ({ items,
 
             <AppPicker 
                 items={items}
+                numberOfColumns={numberOfColumns}
                 onSelectItem={(item) => setFieldValue(name, item)}
+                PickerItemComponent={PickerItemComponent}
                 placeholder={placeholder}
                 selectedItem={values[name]}
+                width={width}
             />
 
             <ErrorMessage 

@@ -7,10 +7,15 @@ import { tailwind } from '../../tailwind.js';
 
 import defaultStyles from '../config/fontStyles.js'
 
-const AppTextInput = ({ icon, ...otherProps }) => {
+const AppTextInput = ({ icon,
+                        width = '100%',
+                    ...otherProps }) => {
     return (
 
-        <View style={tailwind('bg-red-100 my-10e p-15e flex-row w-full rounded-lg')}>
+        <View style={[
+                tailwind('bg-red-100 my-10e p-15e flex-row rounded-lg'),
+                { width }
+                    ]}>
 
            {icon && <MaterialCommunityIcons 
                 name={icon}

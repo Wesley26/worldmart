@@ -27,11 +27,17 @@ const ListingDetailsScreen = () => {
 
             <View style={tailwind('p-20e')}>
 
-                <Text style={tailwind('mb-3 text-xl font-medium')}>
+                <Text 
+                    style={tailwind('mb-3 max-w-list-Details text-xl font-medium')}
+                    numberOfLines={1}
+                >
                     {titleText}
                 </Text>
 
-                <Text style={tailwind('text-blue-500 text-lg font-bold')}>
+                <Text 
+                    style={tailwind('max-w-list-Details text-blue-500 text-lg font-bold')}
+                    numberOfLines={3}
+                >
                     {subTitleText}
                 </Text>
 

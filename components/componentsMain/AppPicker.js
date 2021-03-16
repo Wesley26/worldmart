@@ -14,9 +14,12 @@ import { tailwind } from '../../tailwind.js';
 
 const AppPicker = ({ icon,
                     items,
-                    onSelectItem, 
+                    numberOfColumns = 1,
+                    onSelectItem,
+                    PickerItemComponent = PickerItem, 
                     placeholder,
-                    selectedItem }) => {
+                    selectedItem,
+                    width = "100%" }) => {
 
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -28,7 +31,10 @@ const AppPicker = ({ icon,
             onPress={() => setModalVisible(true)}
         >
 
-            <View style={tailwind('bg-red-100 my-10e p-15e flex-row w-full rounded-lg')}>
+            <View style={[
+                        tailwind('bg-red-100 my-10e p-15e flex-row rounded-lg'),
+                        { width }
+                        ]}>
 
                 {icon && <MaterialCommunityIcons 
                         name={icon}
@@ -64,8 +70,10 @@ const AppPicker = ({ icon,
                 <FlatList 
                     data={items}
                     keyExtractor={item => item.value.toString()}
+                    numColumns={numberOfColumns}
                     renderItem={({ item }) => 
-                        <PickerItem 
+                        <PickerItemComponent
+                            item={item} 
                             label={item.label}
                             onPress={() => {
                                 setModalVisible(false);

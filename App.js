@@ -119,6 +119,7 @@ export default App;
 //const App = () => { return <LoginScreen />; }; export default App; //temp LoginScreen
 
 import React from 'react';
+//import { View } from 'react-native';
 
 //import { tailwind } from './tailwind.js';
 

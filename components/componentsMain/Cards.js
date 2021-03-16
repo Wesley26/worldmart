@@ -17,11 +17,16 @@ const Cards = ({ title, subTitle, image }) => {
             
             <View style={tailwind('p-20e')}>
 
-                <Text style={tailwind('mb-3')}>
+                <Text 
+                    style={tailwind('mb-3 max-w-list-Details')}
+                    numberOfLines={1}>
                     {title}
                 </Text>
 
-                <Text style={tailwind('text-blue-500 font-bold')}>
+                <Text 
+                    style={tailwind('max-w-list-Details text-blue-500 font-bold')}
+                    numberOfLines={3}
+                >
                     {subTitle}
                 </Text>
 

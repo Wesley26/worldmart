@@ -8,6 +8,7 @@ import {
     SubmitButton,
 } from "../componentsMain/forms";
 
+import CategoryPickerItem from "../componentsMain/CategoryPickerItem.js";
 import Screen from "../componentsMain/Screen.js";
 
 import { tailwind } from '../../tailwind.js';
@@ -23,9 +24,15 @@ const validationSchema = Yup.object().shape({
 
 const categories = [
 
-    { label: "Furniture", value: 1 },
-    { label: "Clothing", value: 2 },
-    { label: "Camera", value: 3 },
+    { label: "Furniture", value: 1, backgroundColor: "crimson", icon: "lamp" },
+    { label: "Cars", value: 2, backgroundColor: "coral", icon: "car" },
+    { label: "Camera", value: 3, backgroundColor: "khaki", icon: "camera" },
+    { label: "Games", value: 4, backgroundColor: "lightgreen", icon: "nintendo-game-boy" },
+    { label: "Clothing", value: 5, backgroundColor: "lightblue", icon: "shoe-heel" },
+    { label: "Sports", value: 6, backgroundColor: "lightskyblue", icon: "basketball" },
+    { label: "Movies & Music", value: 7, backgroundColor: "mediumblue", icon: "headphones" },
+    { label: "Books", value: 8, backgroundColor: "mediumpurple", icon: "book" },
+    { label: "Other", value: 9, backgroundColor: "gray", icon: "television" },
 
 ];
 
@@ -56,12 +63,16 @@ const ListingEditScreen = () => {
                     maxLength={8}
                     name="price"
                     placeholder="Price"
+                    width={120}
                 />
 
                 <AppFormPicker 
                     items={categories}
                     name="category"
+                    numberOfColumns={3}
+                    PickerItemComponent={CategoryPickerItem}
                     placeholder="Category"
+                    width="50%"
                 />
 
                 <AppFormField 

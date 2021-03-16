@@ -4,7 +4,7 @@ import { Text,
 
 import { tailwind } from '../../tailwind.js';
 
-const PickerItem = ({ label, onPress }) => {
+const PickerItem = ({ item, onPress }) => {
     return (
 
         <TouchableOpacity
@@ -12,7 +12,7 @@ const PickerItem = ({ label, onPress }) => {
         >
 
             <Text style={tailwind('p-20e text-xl font-medium flex-1')}>
-                {label}
+                {item.label}
             </Text>
 
         </TouchableOpacity>
