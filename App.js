@@ -120,16 +120,17 @@ export default App;
 
 //const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen
 
-import React, { useState } from 'react';
+import React from 'react';
 
 //import { tailwind } from './tailwind.js';
 
 //import AppTextInput from './components/componentsMain/AppTextInput.js';
 //import AppPicker from './components/componentsMain/AppPicker.js';
-import Screen from './components/componentsMain/Screen.js';
+//import Screen from './components/componentsMain/Screen.js';
 //import Icon from './components/componentsMain/Icon.js';
 //import ListItem from './components/componentsMain/ListItem.js';
-import ImageInput from './components/componentsMain/ImageInput.js';
+//import ImageInput from './components/componentsMain/ImageInput.js';
+//import ImageInputList from './components/componentsMain/ImageInputList.js';
 
 //import WelcomeScreen from "./components/screens/WelcomeScreen.js";
 //import ViewImageScreen from "./components/screens/ViewImageScreen.js";
@@ -139,22 +140,6 @@ import ImageInput from './components/componentsMain/ImageInput.js';
 //import AccountScreen from './components/screens/AccountScreen.js';
 //import ListingsScreen from './components/screens/ListingsScreen.js';
 //import LoginScreen from './components/screens/LoginScreen';
-//import ListingEditScreen from './components/screens/ListingEditScreen.js';
+import ListingEditScreen from './components/screens/ListingEditScreen.js';
 
-const App = () => {
-
-    const [imageUri, setImageUri] = useState(); 
-    
-    return (
-
-            <Screen>
-                <ImageInput
-                    imageUri={imageUri}
-                    onChangeImage={uri => setImageUri(uri)}
-                />
-            </Screen>
-
-        ); 
-}; 
-
-export default App; //temp Screen with ImageInput
+const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen
