@@ -120,13 +120,17 @@ export default App;
 
 //const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen
 
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, 
+        Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-//import { tailwind } from './tailwind.js';
+import { tailwind } from './tailwind.js';
 
 //import AppTextInput from './components/componentsMain/AppTextInput.js';
 //import AppPicker from './components/componentsMain/AppPicker.js';
-//import Screen from './components/componentsMain/Screen.js';
+import Screen from './components/componentsMain/Screen.js';
 //import Icon from './components/componentsMain/Icon.js';
 //import ListItem from './components/componentsMain/ListItem.js';
 //import ImageInput from './components/componentsMain/ImageInput.js';
@@ -140,6 +144,91 @@ import React from 'react';
 //import AccountScreen from './components/screens/AccountScreen.js';
 //import ListingsScreen from './components/screens/ListingsScreen.js';
 //import LoginScreen from './components/screens/LoginScreen';
-import ListingEditScreen from './components/screens/ListingEditScreen.js';
+//import ListingEditScreen from './components/screens/ListingEditScreen.js';
 
-const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen
+const Link = () => {
+
+    const navigation = useNavigation();
+
+    return (
+        <Button 
+            title="View Tweet"
+            onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+        />
+    );
+
+};
+
+const Tweets = ({ navigation }) => {
+
+    const [buttonPressCounter, setButtonPressCounter] = useState(0);
+
+    return  (
+    <Screen>
+        <Text>Tweets</Text>
+        <Link />
+        <Button 
+            title="View Tweet?"
+            onPress={() => {
+                            navigation.push("Tweets")
+                            setButtonPressCounter(buttonPressCounter + 1)
+                            console.log(`You have pressed this button ${buttonPressCounter} times!`);
+                            }}
+        />      
+    </Screen>
+    );
+};
+
+const TweetDetails = ({ route }) => {
+    
+    return   (
+
+    <Screen>
+        <Text>Tweet Details {route.params.id}</Text>
+    </Screen>
+
+    );
+};
+
+const Stack = createStackNavigator();
+
+const StackNavigator = () => {
+
+    return (
+    <Stack.Navigator
+        initialRouteName="Tweets"
+        screenOptions={{
+            headerStyle: tailwind("bg-red-700"),
+            headerTintColor: 'white'
+        }}
+    >
+        <Stack.Screen 
+            name="Tweets"
+            component={Tweets}
+        />
+        <Stack.Screen 
+            name="TweetDetails"
+            component={TweetDetails}
+            options={(
+                        { route }) => ({ title: route.params.title },
+                        { 
+                            headerStyle: tailwind("bg-yellow-700"),
+                            headerTintColor: 'white'
+                        }
+                    )}
+        />
+    </Stack.Navigator>
+    );
+};
+
+
+const App = () => {
+    
+    return (
+        <NavigationContainer>
+            <StackNavigator />
+        </NavigationContainer>
+    ); 
+};
+
+export default App;
