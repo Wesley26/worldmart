@@ -124,7 +124,9 @@ import React, { useState } from 'react';
 import { Button, 
         Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { tailwind } from './tailwind.js';
 
@@ -221,12 +223,56 @@ const StackNavigator = () => {
     );
 };
 
+const Tab = createBottomTabNavigator();
+
+const Account = () => <Screen><Text>Account</Text></Screen>
+
+const TabNavigator = () => {
+
+    return (
+
+        <Tab.Navigator
+            tabBarOptions={{
+                activeBackgroundColor: "tomato",
+                activeTintColor: "white",
+                inactiveBackgroundColor: '#eee',
+                inactiveTintColor: 'black',
+            }}
+        >
+            <Tab.Screen 
+                name="Feed"
+                component={StackNavigator}
+                options={{  
+                    tabBarIcon: ({ size, color }) => <MaterialCommunityIcons
+                                            color={color} 
+                                            name="home"
+                                            size={size}
+                                      />
+                }}
+            />
+            <Tab.Screen 
+                name="Account"
+                component={Account}
+                options={{  
+                    tabBarIcon: ({ size, color }) => <MaterialCommunityIcons
+                                            color={color} 
+                                            name="home"
+                                            size={size}
+                                      />
+                }}
+            />
+        </Tab.Navigator>
+
+    );
+
+};
+
 
 const App = () => {
     
     return (
         <NavigationContainer>
-            <StackNavigator />
+            <TabNavigator />
         </NavigationContainer>
     ); 
 };
