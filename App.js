@@ -120,19 +120,22 @@ export default App;
 
 //const App = () => { return <ListingEditScreen />; }; export default App; //temp ListingEditScreen
 
-import React, { useState } from 'react';
-import { Button, 
-        Text } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+//const App = () => { return (<RegisterScreen />); };export default App; //Temp RegisterScreen
 
-import { tailwind } from './tailwind.js';
+import React from 'react';
+//import { Button, 
+//        Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+
+import AppNavigator from './components/navigation/AppNavigator.js';
+//import AuthNavigator from './components/navigation/AuthNavigator.js';
+import navigationTheme from './components/navigation/navigationTheme.js';
+
+//import { tailwind } from './tailwind.js';
 
 //import AppTextInput from './components/componentsMain/AppTextInput.js';
 //import AppPicker from './components/componentsMain/AppPicker.js';
-import Screen from './components/componentsMain/Screen.js';
+//import Screen from './components/componentsMain/Screen.js';
 //import Icon from './components/componentsMain/Icon.js';
 //import ListItem from './components/componentsMain/ListItem.js';
 //import ImageInput from './components/componentsMain/ImageInput.js';
@@ -143,138 +146,26 @@ import Screen from './components/componentsMain/Screen.js';
 //import Cards from "./components/componentsMain/Cards.js";
 //import ListingDetailsScreen from './components/screens/ListingDetailsScreen.js';
 //import MessagesScreen from "./components/screens/MessagesScreen.js";
+//import RegisterScreen from "./components/screens/RegisterScreen.js";
 //import AccountScreen from './components/screens/AccountScreen.js';
 //import ListingsScreen from './components/screens/ListingsScreen.js';
 //import LoginScreen from './components/screens/LoginScreen';
 //import ListingEditScreen from './components/screens/ListingEditScreen.js';
 
-const Link = () => {
+//<AuthNavigator />
 
-    const navigation = useNavigation();
-
-    return (
-        <Button 
-            title="View Tweet"
-            onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
-        />
-    );
-
-};
-
-const Tweets = ({ navigation }) => {
-
-    const [buttonPressCounter, setButtonPressCounter] = useState(0);
-
-    return  (
-    <Screen>
-        <Text>Tweets</Text>
-        <Link />
-        <Button 
-            title="View Tweet?"
-            onPress={() => {
-                            navigation.push("Tweets")
-                            setButtonPressCounter(buttonPressCounter + 1)
-                            console.log(`You have pressed this button ${buttonPressCounter} times!`);
-                            }}
-        />      
-    </Screen>
-    );
-};
-
-const TweetDetails = ({ route }) => {
+export default App = () => { 
     
-    return   (
-
-    <Screen>
-        <Text>Tweet Details {route.params.id}</Text>
-    </Screen>
-
-    );
-};
-
-const Stack = createStackNavigator();
-
-const StackNavigator = () => {
-
-    return (
-    <Stack.Navigator
-        initialRouteName="Tweets"
-        screenOptions={{
-            headerStyle: tailwind("bg-red-700"),
-            headerTintColor: 'white'
-        }}
-    >
-        <Stack.Screen 
-            name="Tweets"
-            component={Tweets}
-        />
-        <Stack.Screen 
-            name="TweetDetails"
-            component={TweetDetails}
-            options={(
-                        { route }) => ({ title: route.params.title },
-                        { 
-                            headerStyle: tailwind("bg-yellow-700"),
-                            headerTintColor: 'white'
-                        }
-                    )}
-        />
-    </Stack.Navigator>
-    );
-};
-
-const Tab = createBottomTabNavigator();
-
-const Account = () => <Screen><Text>Account</Text></Screen>
-
-const TabNavigator = () => {
-
     return (
 
-        <Tab.Navigator
-            tabBarOptions={{
-                activeBackgroundColor: "tomato",
-                activeTintColor: "white",
-                inactiveBackgroundColor: '#eee',
-                inactiveTintColor: 'black',
-            }}
+        <NavigationContainer
+            theme={navigationTheme}
         >
-            <Tab.Screen 
-                name="Feed"
-                component={StackNavigator}
-                options={{  
-                    tabBarIcon: ({ size, color }) => <MaterialCommunityIcons
-                                            color={color} 
-                                            name="home"
-                                            size={size}
-                                      />
-                }}
-            />
-            <Tab.Screen 
-                name="Account"
-                component={Account}
-                options={{  
-                    tabBarIcon: ({ size, color }) => <MaterialCommunityIcons
-                                            color={color} 
-                                            name="home"
-                                            size={size}
-                                      />
-                }}
-            />
-        </Tab.Navigator>
+
+            <AppNavigator />
+
+        </NavigationContainer>
 
     );
 
 };
-
-
-const App = () => {
-    
-    return (
-        <NavigationContainer>
-            <TabNavigator />
-        </NavigationContainer>
-    ); 
-};
-
-export default App;

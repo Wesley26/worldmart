@@ -7,9 +7,12 @@ import { Image,
 import { tailwind } from '../../tailwind.js';
 
 import AppButton from '../componentsMain/AppButton.js';
+import routes from "../navigation/routes.js";
 
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({
+                        navigation
+                        }) => {
 
     const backgroundPic = require("../assets/background.jpg");
     const worldmart_Logo = require("../assets/Worldmart_Logo.png");
@@ -34,7 +37,7 @@ const WelcomeScreen = () => {
             <View style={tailwind('bg-appRed px-3 w-11/12 h-70 rounded-full')}>
                 <AppButton 
                     title="Login"
-                    onPress={() => console.log("You logged in!")}
+                    onPress={() => navigation.navigate(routes.LOGIN)}
                 />
             </View>
 
@@ -43,7 +46,7 @@ const WelcomeScreen = () => {
             <View style={tailwind('bg-appGreen px-3 w-11/12 h-70 rounded-full')}>
             <AppButton 
                     title="Register"
-                    onPress={() => console.log("You have registered!")}
+                    onPress={() => navigation.navigate(routes.REGISTER)}
                 />
             </View>
 

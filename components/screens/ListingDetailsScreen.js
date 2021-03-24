@@ -7,11 +7,9 @@ import { tailwind } from '../../tailwind.js';
 
 import ListItem from '../componentsMain/ListItem.js';
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ route }) => {
 
-    const theJacketPic = require('../assets/jacket.jpg');
-    const titleText = "Red jacket for sale";
-    const subTitleText = "$100";
+    const listing = route.params;
 
     const theProfilePic = require('../assets/wes.png');
     const theName = "Wesley Dzitzer";
@@ -21,7 +19,7 @@ const ListingDetailsScreen = () => {
         <View>
 
             <Image 
-                source={theJacketPic}
+                source={listing.image}
                 style={tailwind('w-full h-300')}
             />
 
@@ -31,14 +29,14 @@ const ListingDetailsScreen = () => {
                     style={tailwind('mb-3 max-w-list-Details text-xl font-medium')}
                     numberOfLines={1}
                 >
-                    {titleText}
+                    {listing.title}
                 </Text>
 
                 <Text 
                     style={tailwind('max-w-list-Details text-blue-500 text-lg font-bold')}
                     numberOfLines={3}
                 >
-                    {subTitleText}
+                    ${listing.price}
                 </Text>
 
                 <View style={tailwind('my-8')}>

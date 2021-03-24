@@ -8,8 +8,27 @@ import Icon from '../componentsMain/Icon.js';
 import ListItem from '../componentsMain/ListItem.js';
 import ListItemSeparatorComponenet from '../componentsMain/ListItemSeparator.js';
 import Screen from '../componentsMain/Screen.js';
+import routes from '../navigation/routes.js';
 
-const AccountScreen = () => {
+const menuItems = [
+    { 
+        title: "My Listings",
+        icon: {
+            name: "format-list-bulleted",
+            backgroundColor: "#fc5c65",
+        },
+    },
+    { 
+        title: "My Messages",
+        icon: {
+            name: "email",
+            backgroundColor: "#4ECDC4",
+        },
+        targetScreen: routes.MESSAGES,
+    },
+];
+
+const AccountScreen = ({ navigation }) => {
 
     const theTitle = "Wesley Dzitzer";
     const theSubTitle = "wesdzitzer45@gmail.com";
@@ -20,23 +39,6 @@ const AccountScreen = () => {
 
 
     const containerStyle = tailwind('my-20e');
-
-    const menuItems = [
-        { 
-            title: "My Listings",
-            icon: {
-                name: "format-list-bulleted",
-                backgroundColor: "#fc5c65",
-            },
-        },
-        { 
-            title: "My Messages",
-            icon: {
-                name: "email",
-                backgroundColor: "#4ECDC4",
-            },
-        },
-    ]
 
     return (
         
@@ -64,6 +66,7 @@ const AccountScreen = () => {
                                     backgroundColor={item.icon.backgroundColor}
                                 />
                             }
+                            onPress={() => navigation.navigate(item.targetScreen)}
                         />
                     }
                 />

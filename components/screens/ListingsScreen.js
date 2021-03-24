@@ -4,6 +4,7 @@ import { FlatList } from 'react-native';
 import { tailwind } from '../../tailwind.js';
 
 import Cards from '../componentsMain/Cards.js';
+import routes from '../navigation/routes.js';
 import Screen from '../componentsMain/Screen.js';
 
 //listings is a temporary solution
@@ -22,7 +23,7 @@ const listings = [
     },
 ];
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
     return (
         
         <Screen style={tailwind('bg-gray-100 p-20e')}>
@@ -35,6 +36,7 @@ const ListingsScreen = () => {
                         title={item.title}
                         subTitle={`$ ${item.price}`}
                         image={item.image}
+                        onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
                     />
                 }
             />

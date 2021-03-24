@@ -1,13 +1,19 @@
 import React from 'react';
 import { Image, 
         Text, 
+        TouchableWithoutFeedback, 
         View } from 'react-native';
 
 import { tailwind } from '../../tailwind.js';
 
-const Cards = ({ title, subTitle, image }) => {
+const Cards = ({ title, subTitle, image, onPress }) => {
 
     return (
+
+        <TouchableWithoutFeedback
+            onPress={onPress}
+        >
+
         <View style={tailwind('bg-white mb-20e rounded-lg overflow-hidden')}>
 
             <Image 
@@ -33,6 +39,8 @@ const Cards = ({ title, subTitle, image }) => {
             </View>
 
         </View>
+
+        </TouchableWithoutFeedback>
     );
 }
 
