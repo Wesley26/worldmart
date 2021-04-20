@@ -6,7 +6,7 @@ import { Image,
 
 import { tailwind } from '../../tailwind.js';
 
-const Cards = ({ title, subTitle, image, onPress }) => {
+const Cards = ({ title, subTitle, imageUrl, onPress }) => {
 
     return (
 
@@ -17,7 +17,7 @@ const Cards = ({ title, subTitle, image, onPress }) => {
         <View style={tailwind('bg-white mb-20e rounded-lg overflow-hidden')}>
 
             <Image 
-                source={image} 
+                source={{ uri: imageUrl }} 
                 style={tailwind('w-full h-200')}
             />
             
