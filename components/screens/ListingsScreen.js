@@ -35,7 +35,7 @@ const ListingsScreen = ({ navigation }) => {
                 <View style={tailwind('my-5 bg-appRed rounded-full')}>
                     <AppButton
                         title="Retry"
-                        onPress={loadListings}
+                        onPress={getListingsApi.request}
                     />
                 </View>
             </>}

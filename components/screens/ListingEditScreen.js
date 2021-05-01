@@ -14,6 +14,8 @@ import useLocation from '../hooks/useLocation';
 import CategoryPickerItem from "../componentsMain/CategoryPickerItem.js";
 import Screen from "../componentsMain/Screen.js";
 
+import listingsApi from "../api/listings.js";
+
 import { tailwind } from '../../tailwind.js';
 
 const validationSchema = Yup.object().shape({
@@ -44,6 +46,21 @@ const ListingEditScreen = () => {
 
     const location = useLocation();
 
+    const handleSubmit = async (listing) => {
+
+        const result = await listingsApi.addListing(
+            { ...listing, location},
+            progress => console.log(progress)
+        );
+
+        if (!result.ok) {
+            return alert('Unable to save the listing.');
+        } else {
+            alert('Success!');
+        };
+
+    };
+
     return (
         
         <Screen style={tailwind('p-5')}>
@@ -56,7 +73,7 @@ const ListingEditScreen = () => {
                     category: null,
                     images: []
                 }}
-                onSubmit={(values) => console.log(values, location)}
+                onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
 
