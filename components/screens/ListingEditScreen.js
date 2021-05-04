@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 import {
@@ -9,12 +9,14 @@ import {
     SubmitButton,
 } from "../componentsMain/forms";
 
+import listingsApi from "../api/listings.js";
+
 import useLocation from '../hooks/useLocation';
 
 import CategoryPickerItem from "../componentsMain/CategoryPickerItem.js";
 import Screen from "../componentsMain/Screen.js";
 
-import listingsApi from "../api/listings.js";
+import UploadScreen from './UploadScreen';
 
 import { tailwind } from '../../tailwind.js';
 
@@ -45,26 +47,36 @@ const categories = [
 const ListingEditScreen = () => {
 
     const location = useLocation();
+    const [uploadVisible, setUploadVisible] = useState(false);
+    const [progress, setProgress] = useState(0);
 
-    const handleSubmit = async (listing) => {
+    const handleSubmit = async (listing, { resetForm }) => {
+        setProgress(0);
+
+        setUploadVisible(true);
 
         const result = await listingsApi.addListing(
             { ...listing, location},
-            progress => console.log(progress)
+            progress => setProgress(progress)
         );
 
         if (!result.ok) {
+            setUploadVisible(false);
             return alert('Unable to save the listing.');
-        } else {
-            alert('Success!');
         };
+
+        resetForm();
 
     };
 
     return (
         
         <Screen style={tailwind('p-5')}>
-
+            <UploadScreen
+                onDone={() => setUploadVisible(false)}
+                progress={progress}
+                visible={uploadVisible}
+            />
             <AppForm 
                 initialValues={{
                     title: "",
