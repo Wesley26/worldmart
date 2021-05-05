@@ -1,10 +1,9 @@
 import React from 'react';
-import { Modal, Text, View } from 'react-native';
+import { Modal, View } from 'react-native';
 
 import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
 
-import fontStyles from "../config/fontStyles.js";
 import { tailwind } from "../../tailwind.js";
 
 export default UploadScreen = ({ 
